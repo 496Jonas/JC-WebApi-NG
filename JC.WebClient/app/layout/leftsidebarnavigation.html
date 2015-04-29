@@ -1,0 +1,18 @@
+﻿<div class="col-sm-3 col-md-2 sidebar" ng-controller="LeftSideBarNavigationController as vm">
+    <ul class="nav info-sidebar">
+        <li class="user">User</li>
+        <li>Logged in</li>
+    </ul>
+    <div class="click-nav">
+        <ul class="no-js">
+            <li>
+                <a href="#" class="clicker">Navigation</a>
+                <ul class="nav nav-sidebar">
+                    <li data-ng-repeat="r in vm.routes" data-ng-class="vm.isCurrent(r)">
+                        <a data-ng-href="#{{r.url}}" data-ng-bind-html="r.config.settings.content"></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

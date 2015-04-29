@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <title>JC.WebApi</title>
+
+    <style>
+        /* This helps the ng-show/ng-hide animations start at the right place. */
+        /* Since Angular has this but needs to load, this gives us the class early. */
+        .ng-hide {
+            display: none !important;
+        }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script>
+        // Must be first. IE10 mobile viewport fix
+        if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            var mq = "@-ms-viewport{width:auto!important}";
+            msViewportStyle.appendChild(document.createTextNode(mq));
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+        }
+    </script>
+</head>
+<body ng-cloak>
+    <div class="container-fluid">
+        <div class="row">
+            <div ng-include="'app/layout/shell.html'"></div>
+        </div>
+    </div>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="Content/cognito/dashboard.css" rel="stylesheet" />
+    <link href="Content/cognito/custom.css" rel="stylesheet" />
+    <link href="Content/cognito/dashboard-custom.css" rel="stylesheet" />
+    <link href="Content/styles.css" rel="stylesheet" />
+    <link href="Content/validation.css" rel="stylesheet" />
+
+    <!-- vendor script -->
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/angular-sanitize.min.js"></script>
+    <script src="Scripts/angular-animate.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/spin.js"></script>
+    <!--<script src="lib/angular-route/angular-route.min.js"></script>
+    <script src="lib/angular-resource/angular-resource.min.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="lib/moment/moment.js"></script>
+    <script src="script/spin.min.js"></script>-->
+    <!-- third party script -->
+    <!--<script src="script/angular-file-upload.js"></script>-->
+    <!-- bootstrap script -->
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+    <script src="app/common/config.js"></script>
+
+    <!-- common modules -->
+    <script src="app/common/common.js"></script>
+    <script src="app/common/spinner.js"></script>
+
+    <!-- application script -->
+    <script src="app/layout/shell.js"></script>
+    <script src="app/layout/leftsidebarnavigation.js"></script>
+    <script src="app/layout/topNavigationController.js"></script>
+    <script src="app/products/productsController.js"></script>
+    <!--<script src="app/layout/shell.js"></script>
+    <script src="app/security/startController.js"></script>
+    <script src="app/security/loginDialogController.js"></script>
+    <script src="app/layout/leftsidebarnavigation.js"></script>
+    <script src="app/layout/topNavigationController.js"></script>
+    <script src="app/dashboard/dashboardController.js"></script>
+    <script src="app/customer/person/personsController.js"></script>
+    <script src="app/customer/person/personEditController.js"></script>
+    <script src="app/customer/person/personAddController.js"></script>
+    <script src="app/customer/company/companiesController.js"></script>
+    <script src="app/customer/company/companyEditController.js"></script>
+    <script src="app/customer/company/companyAddController.js"></script>
+    <script src="app/document/invoice/uploadInvoiceController.js"></script>
+    <script src="app/document/invoice/invoicesController.js"></script>
+    <script src="app/document/invoice/invoiceDetailsController.js"></script>
+    <script src="app/document/invoice/invoiceViewerController.js"></script>
+    <script src="app/document/audio/audioFileDetailsController.js"></script>
+    <script src="app/document/audio/audioFilesController.js"></script>
+    <script src="app/document/communication/communicationFilesController.js"></script>
+    <script src="app/document/communication/communicationFileDetailsController.js"></script>
+    <script src="app/document/communication/uploadCommunicationController.js"></script>
+    <script src="app/document/other/documentFilesController.js"></script>
+    <script src="app/document/other/documentFileDetailsController.js"></script>
+    <script src="app/document/other/uploadDocumentController.js"></script>
+    <script src="app/document/dialogs/emailDialogController.js"></script>
+    <script src="app/security/userProfileController.js"></script>
+    <script src="app/support/supportController.js"></script>-->
+    <!-- service script -->
+    <!--<script src="app/services/userAuthentication.js"></script>
+    <script src="app/services/personsDataService.js"></script>
+    <script src="app/services/companiesDataService.js"></script>
+    <script src="app/services/invoicesDataService.js"></script>
+    <script src="app/services/audiofilesDataService.js"></script>
+    <script src="app/services/communicationFilesDataService.js"></script>
+    <script src="app/services/documentFilesDataService.js"></script>
+    <script src="app/services/dataConstants.js"></script>
+    <script src="app/services/customersDataService.js"></script>
+    <script src="app/services/supportDataService.js"></script>
+    <script src="app/directives/directives.js"></script>-->
+
+</body>
+</html>
