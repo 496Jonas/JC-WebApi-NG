@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace JC.Api.Controllers
 {
+    [Authorize]
     public class ProductsController : ApiController
     {
         // GET: api/Products

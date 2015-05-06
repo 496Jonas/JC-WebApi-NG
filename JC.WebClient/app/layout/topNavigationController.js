@@ -7,13 +7,20 @@
         .module('app')
         .controller(controllerId, topNavigationController);
 
-    topNavigationController.$inject = ['$location']; 
+    topNavigationController.$inject = ['$location', 'currentUser']; 
 
-    function topNavigationController($location) {
+    function topNavigationController($location, currentUser) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'topNavigationController';
+        vm.isLoggedIn = function () {
+            return currentUser.getProfile().isLoggedIn;
+        };
 
+        vm.userName = function () {
+            return currentUser.getProfile().username;
+        };
+        
         activate();
 
         function activate() { }

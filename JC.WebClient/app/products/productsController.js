@@ -5,17 +5,18 @@
 
     angular
         .module('app')
-        .controller(controllerId, productsController);
+        .controller(controllerId, ['productResource', productsController]);
 
-    productsController.$inject = ['$location']; 
+    //productsController.$inject = ['productResource'];
 
-    function productsController($location) {
+    function productsController(productResource) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'productsController';
 
-        activate();
+        productResource.query(function (data) {
+                vm.products = data;
+            });
 
-        function activate() { }
     }
 })();

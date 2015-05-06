@@ -6,13 +6,16 @@
         .module('app')
         .controller(controllerId, leftSideBarNavigation);
 
-    leftSideBarNavigation.$inject = ['$scope', '$route', 'routes'];
+    leftSideBarNavigation.$inject = ['$scope', '$route', 'routes', 'currentUser'];
 
-    function leftSideBarNavigation($scope, $route, routes) {
+    function leftSideBarNavigation($scope, $route, routes, currentUser) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'leftSideBarNavigation';
         vm.isCurrent = isCurrent;
+        vm.isLoggedIn = function () {
+            return currentUser.getProfile().isLoggedIn;
+        };
 
         activate();
 
@@ -34,6 +37,5 @@
             var menu = route.config.title;
             return route.current.title.substr(0, menu.length) === menu ? 'active' : '';
         }
-
     }
 })();

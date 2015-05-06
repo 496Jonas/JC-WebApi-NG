@@ -18,11 +18,13 @@
     commonModule.factory('common', ['$q', '$rootScope', '$timeout', 'commonConfig', common]);
 
     function common($q, $rootScope, $timeout, commonConfig) {
+         
         var service = {
             $broadcast: $broadcast,
             $q: $q,
             $timeout: $timeout,
             activateController: activateController,
+            addToken: addToken
         }
 
         return service;

@@ -24,7 +24,26 @@
         return [{
             url: '/',
             config: {
-                templateUrl: 'app/products/products.html',
+                templateUrl: 'app/login/login.html',
+                controller: 'LoginController',
+                controllerAs: 'vm',
+                title: 'Login',
+            }
+        }, {
+            url: '/register',
+            config: {
+                templateUrl: 'app/users/register.html',
+                controller: 'RegisterController',
+                controllerAs: 'vm',
+                title: 'register',
+                settings: {
+                    content: '<span class="fa fa-user"></span> Register'
+                }
+            }
+        }, {
+            url: "/products",
+            config: {
+                templateUrl: "app/products/products.html",
                 controller: 'ProductsController',
                 controllerAs: 'vm',
                 title: 'products',

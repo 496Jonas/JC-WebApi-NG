@@ -10,6 +10,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using JC.Api.Models;
+using System.Configuration;
 
 namespace JC.Api.Providers
 {
@@ -32,6 +33,10 @@ namespace JC.Api.Providers
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
 
             ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
+
+            var loginRequestUrl = ConfigurationManager.AppSettings["LoginRequestUrl"];
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin",
+                new[] { loginRequestUrl });
 
             if (user == null)
             {

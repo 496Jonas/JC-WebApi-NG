@@ -6,6 +6,7 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
+using System.Web.Http.Cors;
 
 namespace JC.Api
 {
@@ -13,6 +14,9 @@ namespace JC.Api
     {
         public static void Register(HttpConfiguration config)
         {
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+
             var formatters = GlobalConfiguration.Configuration.Formatters;
             var jsonFormatter = formatters.JsonFormatter;
             var settings = jsonFormatter.SerializerSettings;

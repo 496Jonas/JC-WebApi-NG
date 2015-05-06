@@ -6,6 +6,7 @@
         'ngAnimate',
         'ngRoute',
         'ngSanitize',
+        'ngResource',
 
         // Custom modules 
         'common'
