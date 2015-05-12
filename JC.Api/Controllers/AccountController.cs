@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using JC.Api.Models;
 using JC.Api.Providers;
 using JC.Api.Results;
+using System.Linq;
 
 namespace JC.Api.Controllers
 {
@@ -50,6 +51,16 @@ namespace JC.Api.Controllers
         }
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
+
+        // GET api/Account/UserInfo
+        [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
+        [Route("Users")]
+        [AllowAnonymous]
+        public List<ApplicationUser> GetUsers()
+        {
+            var users = UserManager.Users;
+            return users.ToList();
+        }
 
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
@@ -122,7 +133,6 @@ namespace JC.Api.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
             
@@ -327,11 +337,15 @@ namespace JC.Api.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var userId = user.Id;
+            IdentityUserRole role = new IdentityUserRole();
+            role.RoleId = "2";
+            role.UserId = user.Id;
+            user.Roles.Add(role);
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-
+            
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);

@@ -12,15 +12,15 @@
 
     function loginRedirect($q, $location) {
 
-        var lastPath = '/products';
+        var lastPath = '/';
 
         var responseError = function (response) {
             if (response.status === 401) {
                 lastPath = $location.path();
-                $location.path('/');
+                $location.path('/login');
             }
             if (response.status === 404) {
-                $location.path('/');
+                $location.path('/login');
             }
             return $q.reject(response);
         };

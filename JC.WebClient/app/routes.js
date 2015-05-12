@@ -24,10 +24,29 @@
         return [{
             url: '/',
             config: {
+                templateUrl: 'app/products/products.html',
+                controller: 'ProductsController',
+                controllerAs: 'vm',
+                title: 'products',
+            }
+        }, {
+            url: '/login',
+            config: {
                 templateUrl: 'app/login/login.html',
                 controller: 'LoginController',
                 controllerAs: 'vm',
                 title: 'Login',
+            }
+        }, {
+            url: '/useraccounts',
+            config: {
+                templateUrl: 'app/users/useraccounts.html',
+                controller: 'UserAccountsController',
+                controllerAs: 'vm',
+                title: 'useraccounts',
+                settings: {
+                    content: '<span class="fa fa-users"></span> Manage accounts'
+                }
             }
         }, {
             url: '/register',

@@ -21,6 +21,12 @@
             return currentUser.getProfile().username;
         };
         
+        vm.logout = function () {
+            currentUser.removeProfile();
+            currentUser.getProfile();
+            $location.path('/login');
+        }
+
         activate();
 
         function activate() { }

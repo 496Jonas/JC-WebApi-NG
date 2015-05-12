@@ -17,6 +17,5 @@
         productResource.query(function (data) {
                 vm.products = data;
             });
-
     }
 })();

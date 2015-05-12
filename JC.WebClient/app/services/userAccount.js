@@ -8,6 +8,10 @@
     function userAccount($resource, dataConstants) {
 
         return {
+            getUsers: $resource(dataConstants.GETUSERS_URL, null,
+                {
+                    'getUsers': { method: 'GET' }
+                }),
             registration: $resource(dataConstants.REGISTER_URL, null,
                 {
                     'registerUser': { method: 'POST' },

@@ -7,7 +7,7 @@
         'ngRoute',
         'ngSanitize',
         'ngResource',
-
+        'ngCookies',
         // Custom modules 
         'common'
 
